@@ -1,0 +1,33 @@
+﻿@model System.Collections.Generic.List<Microsoft.AspNetCore.Identity.IdentityRole>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+
+<div>
+    <div>
+        <table class="table">
+            <tr>
+                <td><input type="checkbox" id="check-all" /></td>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Action</td>
+            </tr>
+            @foreach (var role in Model)
+            {
+                <tr>
+                    <td><input type="checkbox" class="check-item" id="check-id-@role.Id" /></td>
+                    <td>@role.Id</td>
+                    <td>@role.Name</td>
+                    <td>
+                        <span><a href="/IdentityRole/Edit/@role.Id">Edit</a></span>&nbsp;|&nbsp;
+                        <span><a href="#" class="btn-delete" id="@role.Id">Delete</a></span>
+                    </td>
+                </tr>
+            }
+            <button type="button" id="delete-all">Delete All</button>
+        </table>
+    </div>
+</div>
